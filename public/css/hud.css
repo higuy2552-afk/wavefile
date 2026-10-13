@@ -1,0 +1,204 @@
+/* =========================================================
+   HUD — control deck, switches, dino crew
+   ========================================================= */
+
+.hud-fab {
+  position: fixed;
+  right: clamp(0.8rem, 2.4vw, 1.6rem);
+  bottom: clamp(0.9rem, 2.6vw, 1.8rem);
+  z-index: 71;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1.1rem 0.7rem 0.85rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #06120c;
+  background: var(--lime);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 0 0 1px rgba(182, 255, 60, 0.6), 0 20px 40px -20px rgba(182, 255, 60, 0.9);
+  transition: transform 0.25s var(--ease), box-shadow 0.3s var(--ease);
+}
+.hud-fab:hover { transform: translateY(-2px) scale(1.03); }
+.hud-fab__ico {
+  width: 16px; height: 16px;
+  background:
+    linear-gradient(currentColor, currentColor) 0 2px / 16px 2px no-repeat,
+    linear-gradient(currentColor, currentColor) 0 7px / 11px 2px no-repeat,
+    linear-gradient(currentColor, currentColor) 0 12px / 6px 2px no-repeat;
+}
+.hud-fab__dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #06120c;
+  animation: blink 2s steps(2) infinite;
+}
+.hud-fab[aria-expanded="true"] { opacity: 0; pointer-events: none; }
+
+.hud {
+  position: fixed;
+  right: clamp(0.6rem, 2vw, 1.4rem);
+  top: clamp(0.6rem, 2vw, 1.2rem);
+  bottom: clamp(0.6rem, 2vw, 1.2rem);
+  z-index: 72;
+  width: min(360px, calc(100vw - 1.6rem));
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  background: linear-gradient(180deg, rgba(8, 22, 14, 0.97), rgba(5, 14, 9, 0.97));
+  border: 1px solid rgba(182, 255, 60, 0.3);
+  box-shadow: 0 30px 70px -30px #000, inset 0 0 70px -40px rgba(182, 255, 60, 0.7);
+  backdrop-filter: blur(16px);
+  color: #eafff0;
+  animation: hud-in 0.42s var(--ease) both;
+  overflow: hidden;
+}
+.hud[hidden] { display: none !important; }
+@keyframes hud-in {
+  from { opacity: 0; transform: translateX(28px) scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
+.hud__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1rem 0.85rem;
+  border-bottom: 1px solid rgba(182, 255, 60, 0.18);
+}
+.hud__kicker { font-size: 0.58rem; letter-spacing: 0.26em; color: var(--lime); }
+.hud__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+.hud__close {
+  flex: none;
+  width: 30px; height: 30px;
+  display: grid; place-items: center;
+  background: transparent;
+  border: 1px solid rgba(182, 255, 60, 0.28);
+  color: #eafff0;
+  cursor: pointer;
+  transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.hud__close:hover { background: rgba(255, 46, 77, 0.18); border-color: var(--blood); }
+
+.hud__scroll {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0.9rem 1rem 1.4rem;
+  display: grid;
+  gap: 1.3rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(182, 255, 60, 0.4) transparent;
+}
+.hud__scroll::-webkit-scrollbar { width: 6px; }
+.hud__scroll::-webkit-scrollbar-thumb { background: rgba(182, 255, 60, 0.35); }
+
+.hud__group { display: grid; gap: 0.6rem; }
+.hud__group-title {
+  font-size: 0.58rem;
+  letter-spacing: 0.24em;
+  color: rgba(234, 255, 240, 0.45);
+  padding-bottom: 0.35rem;
+  border-bottom: 1px dashed rgba(182, 255, 60, 0.16);
+}
+.hud__note { font-size: 0.78rem; color: rgba(234, 255, 240, 0.6); line-height: 1.6; }
+.hud__switches { display: grid; gap: 0.4rem; }
+
+.sw {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid rgba(182, 255, 60, 0.14);
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.sw:hover { border-color: rgba(182, 255, 60, 0.4); background: rgba(182, 255, 60, 0.07); }
+.sw__ico { font-size: 1rem; line-height: 1; width: 1.2rem; text-align: center; }
+.sw__body { min-width: 0; }
+.sw__name {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.86rem;
+  color: #eafff0;
+}
+.sw__desc { display: block; font-size: 0.68rem; color: rgba(234, 255, 240, 0.5); line-height: 1.45; }
+.sw__track {
+  position: relative;
+  width: 42px; height: 20px;
+  border: 1px solid rgba(182, 255, 60, 0.4);
+  background: rgba(0, 0, 0, 0.4);
+  flex: none;
+  transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.sw__knob {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 14px; height: 14px;
+  background: rgba(234, 255, 240, 0.55);
+  transition: transform 0.3s var(--ease), background 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.sw[aria-pressed="true"] .sw__track { background: rgba(182, 255, 60, 0.28); border-color: var(--lime); }
+.sw[aria-pressed="true"] .sw__knob {
+  transform: translateX(22px);
+  background: var(--lime);
+  box-shadow: 0 0 12px var(--lime);
+}
+
+.hud__actions { display: grid; gap: 0.4rem; }
+
+.hud__dinos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+.dino-btn {
+  display: grid;
+  place-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.3rem 0.4rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(182, 255, 60, 0.16);
+  cursor: pointer;
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.dino-btn:hover { transform: translateY(-3px); border-color: var(--lime); background: rgba(182, 255, 60, 0.08); }
+.dino-btn .dino { width: 100%; max-width: 74px; height: auto; }
+.dino-btn__txt { font-family: var(--font-mono); font-size: 0.52rem; letter-spacing: 0.1em; color: rgba(234, 255, 240, 0.6); }
+.dino-btn.is-bump { animation: chibi-bump 0.6s var(--ease); }
+
+.hud__foot {
+  padding: 0.6rem 1rem;
+  font-size: 0.54rem;
+  letter-spacing: 0.18em;
+  color: rgba(234, 255, 240, 0.35);
+  border-top: 1px solid rgba(182, 255, 60, 0.14);
+}
+
+/* speech bubble from a dino */
+.dino-say {
+  position: fixed;
+  z-index: 75;
+  max-width: 17rem;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  background: #f4fff6;
+  color: #0a1a11;
+  border: 1px solid #0f5132;
+  border-radius: 14px 14px 14px 4px;
+  box-shadow: 0 18px 34px -18px rgba(0, 0, 0, 0.8);
+  animation: bubble-in 0.26s var(--ease) both;
+  pointer-events: none;
+}

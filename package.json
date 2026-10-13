@@ -1,0 +1,15 @@
+{
+  "name": "wavefile",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Wave Hrang Petrole - Master Character File (single-page cinematic dossier)",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "build:lore": "python3 tools/build_lore.py"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

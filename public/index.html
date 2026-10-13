@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="th" data-filetheme="bio" data-motion="full" data-act="boot">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WAVE HRANG PETROLE — MASTER CHARACTER FILE</title>
+<meta name="description" content="แฟ้มประวัติตัวละคร เวฟ หรั่ง เพโทรล (Wave Hrang Petrole) — คลื่นพลังงานดิบใต้ความเงียบสงบ ที่พร้อมระเบิดและแปรเปลี่ยนรูปแบบได้ทุกสถานการณ์">
+<meta name="theme-color" content="#06120C">
+<meta name="color-scheme" content="dark light">
+<meta property="og:type" content="website">
+<meta property="og:title" content="WAVE HRANG PETROLE — MASTER CHARACTER FILE">
+<meta property="og:description" content="คลื่นพลังงานดิบใต้ความเงียบสงบ ที่พร้อมระเบิดและแปรเปลี่ยนรูปแบบได้ทุกสถานการณ์">
+<meta property="og:image" content="/assets/emblem_lime.webp">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/assets/favicon.png">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/acts.css">
+<link rel="stylesheet" href="/css/dossier.css">
+<link rel="stylesheet" href="/css/hud.css">
+</head>
+<body>
+
+<!-- ============================================================= -->
+<!--  AMBIENT / ATMOSPHERE LAYERS (toggleable from the HUD deck)   -->
+<!-- ============================================================= -->
+<div class="fx" id="fx" aria-hidden="true">
+  <canvas class="fx__canvas" id="fx-particles"></canvas>
+  <div class="fx__layer fx__roses" id="fx-roses"></div>
+  <div class="fx__layer fx__eyes" id="fx-eyes"></div>
+  <div class="fx__layer fx__chibis" id="fx-chibis"></div>
+  <div class="fx__layer fx__scan"></div>
+  <div class="fx__layer fx__grain"></div>
+  <div class="fx__layer fx__vignette"></div>
+  <div class="fx__layer fx__flash" id="fx-flash"></div>
+</div>
+
+<!-- ============================================================= -->
+<!--  ACT 0 — BOOT / LOADING GATE                                  -->
+<!-- ============================================================= -->
+<section class="act act--boot" id="act-boot" data-act="boot" aria-label="หน้าโหลด">
+  <div class="boot__grid" aria-hidden="true"></div>
+  <div class="boot__shell">
+    <div class="boot__brand">
+      <div class="boot__seal" aria-hidden="true">
+        <img src="/assets/emblem_lime.webp" alt="" class="boot__seal-img">
+        <span class="boot__seal-ring"></span>
+        <span class="boot__seal-ring boot__seal-ring--2"></span>
+      </div>
+      <p class="boot__kicker"><span class="mono">MANUS&nbsp;//&nbsp;PERSONNEL&nbsp;ARCHIVE</span> <span class="dot"></span> <span class="mono">BUILD 4.2.7</span></p>
+      <h1 class="boot__title">
+        <span class="boot__title-l1">MASTER</span>
+        <span class="boot__title-l2">CHARACTER</span>
+        <span class="boot__title-l3">FILE</span>
+      </h1>
+      <p class="boot__subject">
+        <span class="boot__subject-label">SUBJECT</span>
+        <span class="boot__subject-name">เวฟ&nbsp;หรั่ง&nbsp;เพโทรล</span>
+        <span class="boot__subject-id mono">ID&nbsp;WHP-042</span>
+      </p>
+    </div>
+
+    <div class="boot__console">
+      <div class="boot__bar" role="progressbar" aria-label="ความคืบหน้าการโหลด" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="boot-bar">
+        <i class="boot__bar-fill" id="boot-fill"></i>
+        <span class="boot__bar-ticks" aria-hidden="true"></span>
+      </div>
+      <div class="boot__readout">
+        <p class="boot__log mono" id="boot-log">booting dossier kernel…</p>
+        <p class="boot__pct mono" id="boot-pct">0%</p>
+      </div>
+
+      <button class="btn btn--enter" id="boot-enter" type="button" disabled>
+        <span class="btn__frame" aria-hidden="true"></span>
+        <span class="btn__label" id="boot-enter-label">กำลังเตรียมแฟ้ม…</span>
+        <span class="btn__hint" id="boot-enter-hint">รอสักครู่</span>
+      </button>
+
+      <ul class="boot__specs">
+        <li><span class="mono">CLASS</span><b>D-</b></li>
+        <li><span class="mono">STATUS</span><b>ACTIVE</b></li>
+        <li><span class="mono">THREAT</span><b>LOW</b></li>
+        <li><span class="mono">AGE</span><b>42</b></li>
+      </ul>
+    </div>
+
+    <div class="boot__dino" id="boot-dino" aria-hidden="true"></div>
+  </div>
+  <p class="boot__foot mono">© WAVE HRANG PETROLE · คลื่นพลังงานดิบใต้ความเงียบสงบ</p>
+</section>
+
+<!-- ============================================================= -->
+<!--  ACT 1 — WARP GATE (roses falling · eyes watching)            -->
+<!-- ============================================================= -->
+<section class="act act--gate" id="act-gate" data-act="gate" aria-label="ฉากวาร์ป" hidden>
+  <div class="gate__void" aria-hidden="true"></div>
+  <div class="gate__core" aria-hidden="true">
+    <span class="gate__ring"></span>
+    <span class="gate__ring gate__ring--2"></span>
+    <span class="gate__ring gate__ring--3"></span>
+    <img class="gate__emblem" src="/assets/emblem_lime.webp" alt="">
+    <span class="gate__pulse"></span>
+  </div>
+  <div class="gate__hud">
+    <p class="gate__line mono" id="gate-line">> establishing warp corridor…</p>
+    <p class="gate__sub" id="gate-sub">กุหลาบกำลังร่วงลงมา… และมีบางอย่างกำลังจับตาคุณอยู่</p>
+  </div>
+  <button class="btn btn--ghost gate__skip" id="gate-skip" type="button">ข้ามฉากนี้ ›</button>
+</section>
+
+<!-- ============================================================= -->
+<!--  ACT 2 — OPENING MESSAGES (with blur-out hand-off)            -->
+<!-- ============================================================= -->
+<section class="act act--msg" id="act-msg" data-act="msg" aria-label="ข้อความเปิด" hidden>
+  <div class="msg__stage">
+    <div class="msg__stack" id="msg-stack" aria-live="polite"></div>
+    <div class="msg__controls">
+      <button class="btn btn--next" id="msg-next" type="button">
+        <span class="btn__label">ถัดไป</span>
+        <span class="btn__ico" aria-hidden="true">›</span>
+      </button>
+      <button class="btn btn--ghost" id="msg-skip" type="button">ข้ามไปที่แฟ้ม ››</button>
+    </div>
+    <div class="msg__progress" aria-hidden="true">
+      <span class="msg__pip is-on" data-pip="0"></span>
+      <span class="msg__pip" data-pip="1"></span>
+      <span class="msg__pip" data-pip="2"></span>
+    </div>
+  </div>
+  <div class="msg__dino" id="msg-dino" aria-hidden="true"></div>
+</section>
+
+<!-- ============================================================= -->
+<!--  ACT 3 — FLICKER REVEAL (2-frame strobe → bright clear shot)  -->
+<!-- ============================================================= -->
+<section class="act act--reveal" id="act-reveal" data-act="reveal" aria-label="ฉากเปิดภาพตัวละคร" hidden>
+  <div class="reveal__stage">
+    <img class="reveal__frame reveal__frame--a" id="reveal-a" src="/assets/emblem_red.webp" alt="">
+    <img class="reveal__frame reveal__frame--b" id="reveal-b" src="/assets/emblem_lime.webp" alt="">
+    <div class="reveal__slices" aria-hidden="true"></div>
+    <div class="reveal__burst" id="reveal-burst" aria-hidden="true"></div>
+    <div class="reveal__rays" aria-hidden="true"></div>
+  </div>
+  <p class="reveal__caption mono" id="reveal-caption">decrypting identity…</p>
+  <button class="btn btn--ghost reveal__skip" id="reveal-skip" type="button">ข้าม ›</button>
+</section>
+
+<!-- ============================================================= -->
+<!--  ACT 4 — MASTER CHARACTER FILE                                -->
+<!-- ============================================================= -->
+<main class="act act--file" id="act-file" data-act="file" aria-label="แฟ้มประวัติตัวละคร" hidden>
+
+  <div class="filebar">
+    <div class="filebar__left">
+      <span class="filebar__mark" aria-hidden="true"></span>
+      <span class="filebar__title mono">MASTER&nbsp;CHARACTER&nbsp;FILE</span>
+      <span class="filebar__id mono">WHP-042</span>
+    </div>
+    <div class="filebar__mid" aria-hidden="true">
+      <span class="filebar__ticker" id="filebar-ticker"></span>
+    </div>
+    <div class="filebar__right">
+      <button class="chip" id="jump-top" type="button">ต้นแฟ้ม</button>
+      <button class="chip" id="replay-intro" type="button">เล่นฉากเปิดใหม่</button>
+    </div>
+    <div class="filebar__progress" aria-hidden="true"><i id="read-progress"></i></div>
+  </div>
+
+  <nav class="spine" id="spine" aria-label="สารบัญแฟ้ม">
+    <span class="spine__label mono">INDEX</span>
+    <ol class="spine__list" id="spine-list"></ol>
+    <span class="spine__foot mono">𝄎</span>
+  </nav>
+
+  <div class="filebody">
+
+    <!-- HERO -->
+    <header class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <span class="hero__halo"></span>
+        <span class="hero__grid"></span>
+        <span class="hero__sweep"></span>
+      </div>
+
+      <div class="hero__emblem" id="hero-emblem" role="img" aria-label="ตราสัญลักษณ์ WAVE PETROLE">
+        <img class="hero__emblem-img" id="hero-emblem-img" src="/assets/emblem_lime.webp"
+             data-src-lime="/assets/emblem_lime.webp" data-src-red="/assets/emblem_red.webp"
+             alt="" width="700" height="700" decoding="async">
+        <span class="hero__emblem-glow" aria-hidden="true"></span>
+        <span class="hero__emblem-corner hero__emblem-corner--tl" aria-hidden="true"></span>
+        <span class="hero__emblem-corner hero__emblem-corner--tr" aria-hidden="true"></span>
+        <span class="hero__emblem-corner hero__emblem-corner--bl" aria-hidden="true"></span>
+        <span class="hero__emblem-corner hero__emblem-corner--br" aria-hidden="true"></span>
+      </div>
+
+      <div class="hero__text">
+        <p class="hero__eyebrow mono">SUBJECT&nbsp;IDENTIFIED&nbsp;·&nbsp;CLEARANCE&nbsp;OPEN</p>
+        <h2 class="hero__name" data-glitch="WAVE HRANG PETROLE">
+          <span class="hero__name-line">WAVE</span>
+          <span class="hero__name-line hero__name-line--accent">HRANG</span>
+          <span class="hero__name-line">PETROLE</span>
+        </h2>
+        <p class="hero__name-th">เวฟ&nbsp;หรั่ง&nbsp;เพโทรล</p>
+        <p class="hero__quote">“คลื่นพลังงานดิบใต้ความเงียบสงบ ที่พร้อมระเบิดและแปรเปลี่ยนรูปแบบได้ทุกสถานการณ์”</p>
+
+        <dl class="hero__stats" id="hero-stats">
+          <div class="stat"><dt class="mono">อายุ</dt><dd data-count="42"><span>0</span><i>ปี</i></dd></div>
+          <div class="stat"><dt class="mono">ส่วนสูง</dt><dd data-count="200"><span>0</span><i>ซม.</i></dd></div>
+          <div class="stat"><dt class="mono">น้ำหนัก</dt><dd data-count="91"><span>0</span><i>กก.</i></dd></div>
+          <div class="stat stat--wide"><dt class="mono">สถานะ</dt><dd><span>นักโทษทั่วไป</span><i>ระดับความอันตรายต่ำ</i></dd></div>
+        </dl>
+
+        <div class="hero__actions">
+          <button class="btn btn--primary" id="hero-read" type="button">
+            <span class="btn__label">อ่านประวัติทั้งหมด</span>
+            <span class="btn__ico" aria-hidden="true">↓</span>
+          </button>
+          <button class="btn btn--ghost" id="hero-hud" type="button">เปิดแผงลูกเล่น</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- IDENTITY GALLERY -->
+    <section class="gallery" id="gallery" aria-label="ภาพตัวละคร">
+      <header class="sect-head">
+        <p class="sect-head__kicker mono">[ IDENTITY&nbsp;CAPTURE&nbsp;/&nbsp;ภาพตัวละคร ]</p>
+        <h3 class="sect-head__title">ภาพตัวละครเต็มตัว</h3>
+        <p class="sect-head__note">ภาพหลัก 4 capture อยู่ในกรอบแฟ้มแบบฟิล์มเข้ม ส่วนจิบิทั้ง 8 ท่าจะลอยอยู่นอกกรอบเป็นเครื่องตกแต่งประจำแฟ้ม</p>
+      </header>
+      <div class="gallery__grid" id="gallery-grid"></div>
+    </section>
+
+    <!-- PROFILE DOSSIER -->
+    <section class="lore" id="lore" aria-label="ประวัติตัวละคร">
+      <header class="sect-head">
+        <p class="sect-head__kicker mono">[ PROFILE&nbsp;DATA&nbsp;/&nbsp;ประวัติ ]</p>
+        <h3 class="sect-head__title">แฟ้มข้อมูลตัวละคร</h3>
+      </header>
+
+      <div class="lore__tools">
+        <button class="chip" id="expand-all" type="button">เปิดทุกหัวข้อ</button>
+        <button class="chip" id="collapse-all" type="button">ย่อทุกหัวข้อ</button>
+        <span class="lore__tools-note mono" id="lore-count"></span>
+      </div>
+
+      <!--@LORE-START@-->
+<article class="dossier" id="dossier">
+<header class="dossier__head">
+<div class="dossier__rule" aria-hidden="true"></div>
+<p class="dossier__masthead">─── ⌈ 𝑴𝑨𝑺𝑻𝑬𝑹  𝑪𝑯𝑨𝑹𝑨𝑪𝑻𝑬𝑷  𝑭𝑰𝑳𝑬 ⌋ ───</p>
+<p class="dossier__subhead">☁︎ ☁︎  ☁︎  ── 𝑾𝑨𝑽𝑬  [ 𝑯𝑹𝑨𝑵𝑮 ]  𝑑.  𝑷𝑬𝑻𝑹𝑶𝑳𝑬 ── ☁︎ ☁︎ ☁︎</p>
+<blockquote class="dossier__quote">“คลื่นพลังงานดิบใต้ความเงียบสงบ ที่พร้อมระเบิดและแปรเปลี่ยนรูปแบบได้ทุกสถานการณ์”</blockquote>
+<div class="dossier__rule" aria-hidden="true"></div>
+</header>
+<section class="blk" id="sec-01" data-num="01" data-nav="ข้อมูลทั่วไปและที่มาของชื่อ"><span class="blk__ghost" aria-hidden="true">01</span><header class="blk__head"><h2 class="blk__title"><span class="blk__tag">𝄎 01</span><span class="blk__sep" aria-hidden="true"> : </span><span class="blk__name">𝙂𝙀𝙉𝙀𝙍𝘼𝙇 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝙏𝙄𝙊𝙉 &amp; 𝙇𝙊𝙍𝙀 [ข้อมูลทั่วไปและที่มาของชื่อ]</span></h2><button class="blk__toggle" type="button" aria-expanded="true" aria-controls="sec-01-body"><span class="blk__toggle-ico" aria-hidden="true"></span><span class="blk__toggle-txt">ย่อ</span></button></header><div class="blk__body" id="sec-01-body"><ul class="blk__list"><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">ชื่อ-นามสกุล: เวฟ หรั่ง เพโทรล (Wave Hrang Petrole)</span></li><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">ความหมายและที่มาของชื่อ:</span><ul class="row__subs"><li class="row__sub">Wave (เวฟ): หมายถึง 'คลื่น' สื่อถึงพลังกลที่มีความพริ้วไหว ไหลไปตามวัฏจักรและกระแสรอบตัวอย่างต่อเนื่องไม่ขาดสาย</li><li class="row__sub">Petrole (เพโทรล): คำสั้นที่แปลงมาจาก Petroleum (ปิโตรเลียมหรือแก๊สธรรมชาติ) สื่อถึงพลังงานดิบที่กักเก็บความอันตราย ความมืด และความรุนแรงไว้ภายใน</li><li class="row__sub">นัยยะรวม: เปรียบเสมือนคลื่นพลังงานที่รุนแรงแต่สงบนิ่ง เสมือนแก๊สในอากาศที่ล่องลอยไร้เสียงและแทบไม่มีใครสังเกตเห็นตัวตน แต่กลับซ่อนพิษสงรอบตัวพร้อมแปรเปลี่ยนรูปแบบเพื่อปรับใช้ได้ในทุกสถานการณ์อย่างแนบเนียน</li><li class="row__sub">หรั่ง (Hrang): ชื่อเล่นที่ตั้งขึ้นขำๆ จากการที่มีคนไทยทักว่าหน้าตาคล้ายฝรั่ง จนติดปากและใช้เป็นชื่อลำลองตรงกลาง</li></ul></li><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">เพศ / อายุ: ชาย / 42 ปี (ผ่านโลก โชกโชน และผ่านจุดเปลี่ยนชีวิตมานับครั้งไม่ถ้วน)</span></li><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">สัดส่วน: ส่วนสูง 200 ซม. / น้ำหนัก 91 กก. (โครงสร้างร่างกายใหญ่โต ระดับยักษ์ปักหลั่นแต่สมส่วน)</span></li><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">สถานะในเรือนจำ: นักโทษทั่วไป ระดับความอันตรายต่ำ (ภัยไม่เยอะ ใช้ชีวิตชิลๆ ไม่หาเรื่องใครก่อนยกเว้นใครมาหาเรื่อง)</span></li></ul></div></section>
+<section class="blk" id="sec-02" data-num="02" data-nav="ลักษณะภายนอกและเรือนร่าง"><span class="blk__ghost" aria-hidden="true">02</span><header class="blk__head"><h2 class="blk__title"><span class="blk__tag">𝄎 02</span><span class="blk__sep" aria-hidden="true"> : </span><span class="blk__name">𝘼𝙋𝙋𝙀𝘼𝙍𝘼𝙉𝘾𝙀 &amp; 𝑷𝑯𝒀𝑺𝑰𝑸𝑼𝑬 [ลักษณะภายนอกและเรือนร่าง]</span></h2><button class="blk__toggle" type="button" aria-expanded="true" aria-controls="sec-02-body"><span class="blk__toggle-ico" aria-hidden="true"></span><span class="blk__toggle-txt">ย่อ</span></button></header><div class="blk__body" id="sec-02-body"><ul class="blk__list"><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">เรือนร่างและมวลกล้ามเนื้อ: ชายวัย 42 ปี ที่รักษาสภาพร่างกายได้กำยำล่ำสันเกินวัย ร่างกายสูงใหญ่ถึง 200 เซนติเมตร แผงอกหนากว้าง ลอนกล้ามท้อง (Six-pack) เด่นชัดทุกมัด ผิวเนื้อมีร่องรอยการผ่านศึกและดูแลตัวเองอย่างดี</span></li><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">ศิลปะบนเรือนร่าง (Tattoos): ทั่วทั้งแผงอก ลำคอ และแขนทั้งสองข้างจนถึงข้อมือถูกปกคลุมด้วยรอยสักสีดำสนิทสไตล์โกธิคผสมดาร์กอาร์ต ลวดลายซับซ้อนประกอบด้วย ภาพนางฟ้า/เทวดา, กางเขน, ตัวอักษรละลานตา และ "ลายงูเลื้อย" ที่เลื้อยพาดผ่านกลางแผงอกลงมา</span></li><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">ใบหน้าและเอกลักษณ์: ทรงผม Mullet ยุ่งเหยิงสีดำแซมไฮไลท์เขียวมะนาว/เขียวตะไคร้ที่ปลายและโคนผม สวมแว่นตากรอบสี่เหลี่ยมสีขาวตัดกับใบหน้าคมคาย ดวงตาคมปนกวนประสาท มีรอยสักสัญลักษณ์ตัวอักษรเล็กๆ บริเวณโหนกแก้ม</span></li></ul></div></section>
+<section class="blk" id="sec-03" data-num="03" data-nav="มิติทางจิตวิทยาและอุปนิสัย"><span class="blk__ghost" aria-hidden="true">03</span><header class="blk__head"><h2 class="blk__title"><span class="blk__tag">𝄎 03</span><span class="blk__sep" aria-hidden="true"> : </span><span class="blk__name">𝑷𝑺𝒀𝑪𝑯𝑶𝑳𝑶𝑮𝑼 &amp; 𝑩𝑬𝑯𝑨𝑽𝑰𝑶𝑹 [มิติทางจิตวิทยาและอุปนิสัย]</span></h2><button class="blk__toggle" type="button" aria-expanded="true" aria-controls="sec-03-body"><span class="blk__toggle-ico" aria-hidden="true"></span><span class="blk__toggle-txt">ย่อ</span></button></header><div class="blk__body" id="sec-03-body"><ul class="blk__list"><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">แก่นแท้ทางอารมณ์:</span><ul class="row__subs"><li class="row__sub">สายท้าทายและเอนเตอร์เทน: ชอบความตื่นเต้น ชอบความท้าทาย และมองว่าความขัดแย้งหรือการปะทะฝีปากคือความบันเทิงรูปแบบหนึ่ง</li><li class="row__sub">โหมดสันโดษ (Burnout Mode): หากใช้พลังงานทางสังคมหมดหรือเกิดอาการเบิร์นเอาท์ เขาจะตัดขาดจากรอบข้างทันที นิ่งเงียบ และถอยฉากไปอยู่ในพื้นที่ส่วนตัวเพื่อชาร์จแบตเตอรี่ให้ตัวเอง</li><li class="row__sub">เส้นแบ่งที่ชัดเจน: แม้จะดูขี้เล่น กวน หรือกะล่อน แต่เรื่องการแยกแยะ (ระหว่างเรื่องเล่นกับเรื่องงาน, คนสนิทกับคนนอก) เขาทำได้เด็ดขาดและชัดเจนมาก</li><li class="row__sub">จุดเดือดต่ำ (อารมณ์ร้อนจัด): ภายใต้ความชิล มีเชื้อเพลิงอารมณ์ร้อนซ่อนอยู่ หากถูกกระตุ้นถึงขีดจำกัด จะกลายเป็นคนละคนและรับมือได้ยากในทันที</li></ul></li></ul></div></section>
+<section class="blk" id="sec-04" data-num="04" data-nav="ประวัติสุขภาพและสภาวะทางประสาท"><span class="blk__ghost" aria-hidden="true">04</span><header class="blk__head"><h2 class="blk__title"><span class="blk__tag">𝄎 04</span><span class="blk__sep" aria-hidden="true"> : </span><span class="blk__name">𝑴𝑬𝑫𝑰𝑪𝑨𝑳 &amp; 𝑵𝑬𝑼𝑹𝑶𝑳𝑶𝑮𝑰𝑪𝑨𝑳 𝑷𝑹𝑶𝑭𝑰𝑳𝑬 [ประวัติสุขภาพและสภาวะทางประสาท]</span></h2><button class="blk__toggle" type="button" aria-expanded="true" aria-controls="sec-04-body"><span class="blk__toggle-ico" aria-hidden="true"></span><span class="blk__toggle-txt">ย่อ</span></button></header><div class="blk__body" id="sec-04-body"><ul class="blk__list"><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">อาการทางกายภาพเฉพาะตัว (Adrenaline Spike &amp; BP Surge): 𝄃𝄃𝄂𝄂𝄀𝄁𝄃𝄂𝄂𝄃</span><ul class="row__subs"><li class="row__sub">เมื่อเกิดความตื่นเต้นรุนแรง หัวใจจะเต้นกระชั้นชิดและสูบฉีดความดันพุ่งสูงเกินระดับ 160+ mmHg</li><li class="row__sub">ส่งผลให้เกิดอาการ "เลือดกำเดาไหล" ออกมาทันที</li><li class="row__sub">เงื่อนไขการเกิด: เกิดจากการถูกทำร้ายร่างกาย หรือยามที่ตัวเขาเองลงมือทำร้ายผู้อื่นอย่างรุนแรง (แม้จะเกิดขึ้นได้ยาก แต่ถ้ามีคนมาหาเรื่องหรือเปิดก่อน สภาวะนี้จะทำงานทันที)</li></ul></li><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">ภาวะทางจิตเวชในอดีต (Pseudo-Autism History):</span><ul class="row__subs"><li class="row__sub">เคยมีประวัติเป็น ออทิสติกเทียม ในวัยเด็ก แต่ปัจจุบัน หายเป็นปกติแล้ว</li><li class="row__sub">ผลตกค้างที่ยังหลงเหลือ: มีพฤติกรรมแปลกๆ เช่น ชอบทำท่าทางประหลาด, ชอบจ้องมองสิ่งของหรือผู้คนนิ่งๆ นานเกินกว่าปกติเมื่อเกิดความสนใจ</li><li class="row__sub">พัฒนาการทางความคิด: เคยมีพัฒนาการที่ก้าวกระโดดและแปลกประหลาดในอดีต ปัจจุบันเติบโตมาแบบปกติ ไม่ช้าหรือเร็วเกินไป ทว่า... "สแตนดาร์ดความคิด รสนิยม และแฟชั่น" ของเขายังคงมีความอินดี้ แปลกแยก และไม่แคร์มาตรฐานยุคปัจจุบันโดยสิ้นเชิง</li></ul></li></ul></div></section>
+<section class="blk" id="sec-05" data-num="05" data-nav="รสนิยมและความชอบเฉพาะตัว"><span class="blk__ghost" aria-hidden="true">05</span><header class="blk__head"><h2 class="blk__title"><span class="blk__tag">𝄎 05</span><span class="blk__sep" aria-hidden="true"> : </span><span class="blk__name">𝑳𝑰𝑲𝑬𝑺 &amp; 𝑫𝑰𝑺𝑳𝑰𝑲𝑬𝑺 [รสนิยมและความชอบเฉพาะตัว]</span></h2><button class="blk__toggle" type="button" aria-expanded="true" aria-controls="sec-05-body"><span class="blk__toggle-ico" aria-hidden="true"></span><span class="blk__toggle-txt">ย่อ</span></button></header><div class="blk__body" id="sec-05-body"><ul class="blk__list"><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">สิ่งที่ชอบ (Likes):</span><ul class="row__subs"><li class="row__sub">🜸 Skinship: ชื่นชอบการสัมผัสทางกาย การกอด การแตะเนื้อต้องตัว</li><li class="row__sub">🜸 มือปลาหมึก: นิสัยชอบจับนู่นจับนี่ สัมผัสสิ่งรอบตัวหรือคนใกล้ตัวไปเรื่อยเปื่อยตามสัญชาตญาณ</li><li class="row__sub">🜸 กลิ่นดิน: หลงใหลกลิ่นอายของดินหลังฝนตก (Petrichor) หรือกลิ่นธรรมชาติที่ดิบชื้น</li><li class="row__sub">🜸 ความเรียบง่าย: ชอบอาหารธรรมดา การใช้ชีวิตที่ไม่ต้องปรุงแต่งหรือมีพิธีรีตองเยอะ</li></ul></li><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">สิ่งที่ไม่ชอบ (Dislikes):</span><ul class="row__subs"><li class="row__sub">🜸 เสียงดังจัด: เกลียดเสียงโวยวายหนวกหู หรือเสียงแหลมสูงที่ไม่มีเหตุผล</li><li class="row__sub">🜸 ความเรื่องมาก/ซับซ้อน: (สิ่งที่ไม่ชอบอื่นๆ ยังไม่แน่ชัด)</li></ul></li></ul></div></section>
+<section class="blk" id="sec-06" data-num="06" data-nav="ความสัมพันธ์กับคู่โรล"><span class="blk__ghost" aria-hidden="true">06</span><header class="blk__head"><h2 class="blk__title"><span class="blk__tag">𝄎 06</span><span class="blk__sep" aria-hidden="true"> : </span><span class="blk__name">𝑹𝑬𝑳𝑨𝑻𝑰𝑶𝑵𝑺𝑯𝑰𝑷 𝑫𝒀𝑵𝑨𝑴𝑰𝑪 [ความสัมพันธ์กับคู่โรล]</span></h2><button class="blk__toggle" type="button" aria-expanded="true" aria-controls="sec-06-body"><span class="blk__toggle-ico" aria-hidden="true"></span><span class="blk__toggle-txt">ย่อ</span></button></header><div class="blk__body" id="sec-06-body"><ul class="blk__list"><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">คู่โรล: เบ๊บ ริส (Babe Ris)</span></li><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">สถานะความสัมพันธ์: No friend no enemy (ไม่ใช่เพื่อน และไม่เชิงศัตรู)</span></li><li class="row"><span class="row__mark" aria-hidden="true"></span><span class="row__text">ไดนามิกความสัมพันธ์:</span><ul class="row__subs"><li class="row__sub">เป็นคู่ที่ความสนิทติดลบ แต่สามารถ "เถียงกันได้ตลอดเวลา"</li><li class="row__sub">รูปแบบการทะเลาะมีความหลุดโลก ตั้งแต่ยืนเถียง นั่งเถียง ไปจนถึงตีลังกาเถียง</li><li class="row__sub">ตัวเวฟ หรั่ง มองว่าความสัมพันธ์รูปแบบนี้มัน "บันเทิงดี" และแก้เบื่อในคุกได้ดี เขาก็เลยสนุกกับการต่อปากต่อคำกับเบ๊บทุกครั้งที่มีโอกาส</li></ul></li></ul></div></section>
+<div class="dossier__divider" aria-hidden="true"><span class="dossier__divider-txt">🫧𓇼𓏲 ☘︎*ੈ✩‧₊˚🎐 🫧𓇼𓏲 ☘︎*ੈ✩‧₊˚🎐 🫧𓇼𓏲 ☘︎*ੈ✩‧₊˚🎐</span></div>
+</article>
+<!--@LORE-END@-->
+    </section>
+
+    <footer class="signoff">
+      <div class="signoff__dino" id="foot-dino" aria-hidden="true"></div>
+      <p class="signoff__big">อย่าลืมมาสัมผัสผมนะครับ</p>
+      <p class="signoff__small mono">— WAVE&nbsp;HRANG&nbsp;PETROLE&nbsp;·&nbsp;END&nbsp;OF&nbsp;FILE —</p>
+    </footer>
+  </div>
+
+  <div class="chibi-dock" id="chibi-dock" aria-label="จิบิตัวละคร"></div>
+</main>
+
+<!-- ============================================================= -->
+<!--  HUD CONTROL DECK                                             -->
+<!-- ============================================================= -->
+<button class="hud-fab" id="hud-open" type="button" aria-expanded="false" aria-controls="hud">
+  <span class="hud-fab__ico" aria-hidden="true"></span>
+  <span class="hud-fab__txt">ลูกเล่น</span>
+  <span class="hud-fab__dot" aria-hidden="true"></span>
+</button>
+
+<aside class="hud" id="hud" aria-label="แผงควบคุมลูกเล่น" hidden>
+  <header class="hud__head">
+    <div>
+      <p class="hud__kicker mono">CONTROL&nbsp;DECK</p>
+      <h2 class="hud__title">แผงลูกเล่น</h2>
+    </div>
+    <button class="hud__close" id="hud-close" type="button" aria-label="ปิดแผง">✕</button>
+  </header>
+
+  <div class="hud__scroll">
+    <section class="hud__group">
+      <h3 class="hud__group-title mono">VISUAL&nbsp;FX</h3>
+      <div class="hud__switches" id="hud-switches"></div>
+    </section>
+
+    <section class="hud__group">
+      <h3 class="hud__group-title mono">SCENE</h3>
+      <div class="hud__actions">
+        <button class="chip chip--wide" id="hud-replay" type="button">เล่นฉากเปิดใหม่</button>
+        <button class="chip chip--wide" id="hud-theme" type="button">สลับโหมดสว่าง / มืด</button>
+        <button class="chip chip--wide" id="hud-all-on" type="button">เปิดลูกเล่นทั้งหมด</button>
+        <button class="chip chip--wide" id="hud-all-off" type="button">ปิดลูกเล่นทั้งหมด</button>
+      </div>
+    </section>
+
+    <section class="hud__group">
+      <h3 class="hud__group-title mono">DINO&nbsp;CREW</h3>
+      <p class="hud__note">ไดโนเสาร์จะคอยกดสวิตช์แทนคุณ — ลองคลิกตัวมันดู</p>
+      <div class="hud__dinos" id="hud-dinos"></div>
+    </section>
+  </div>
+
+  <footer class="hud__foot mono">WHP-042&nbsp;·&nbsp;ALL&nbsp;TOGGLES&nbsp;SAVED&nbsp;LOCALLY</footer>
+</aside>
+
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<!-- Dino sprite sheet -->
+<svg class="dino-defs" aria-hidden="true" focusable="false" width="0" height="0">
+  <defs>
+    <symbol id="dino-trex" viewBox="0 0 150 130">
+      <path class="d-tail" d="M40 96C18 100 4 84 8 66c3-14 16-20 26-14 6 3 8 9 6 14-4-6-13-7-17-1-5 7 1 16 12 16 6 0 11-2 15-4z"/>
+      <rect class="d-leg" x="52" y="100" width="19" height="20" rx="9"/>
+      <rect class="d-leg" x="82" y="100" width="19" height="20" rx="9"/>
+      <ellipse class="d-body" cx="76" cy="80" rx="36" ry="30"/>
+      <ellipse class="d-belly" cx="76" cy="88" rx="23" ry="19"/>
+      <path class="d-plate" d="M52 56l9-15 9 15z"/>
+      <path class="d-plate" d="M68 50l9-15 9 15z"/>
+      <path class="d-plate" d="M84 52l8-13 8 13z"/>
+      <circle class="d-head" cx="112" cy="54" r="29"/>
+      <ellipse class="d-snout" cx="134" cy="64" rx="17" ry="13"/>
+      <ellipse class="d-blush" cx="104" cy="66" rx="7" ry="4"/>
+      <ellipse class="d-blush" cx="136" cy="72" rx="7" ry="4"/>
+      <g class="d-eye">
+        <circle cx="110" cy="46" r="10" fill="#fff"/>
+        <circle cx="112" cy="47" r="5.6" class="d-pupil"/>
+        <circle cx="114.4" cy="44.4" r="2" fill="#fff"/>
+      </g>
+      <path class="d-mouth" d="M124 72q6 6 14 1" fill="none" stroke-width="2.6" stroke-linecap="round"/>
+      <ellipse class="d-arm" cx="98" cy="78" rx="7" ry="9"/>
+    </symbol>
+
+    <symbol id="dino-stego" viewBox="0 0 150 130">
+      <path class="d-tail" d="M44 98C22 102 6 88 10 70c3-14 16-20 26-14 6 3 8 9 6 14-4-6-13-7-17-1-5 7 1 16 12 16 6 0 11-2 15-4z"/>
+      <rect class="d-leg" x="52" y="100" width="19" height="20" rx="9"/>
+      <rect class="d-leg" x="82" y="100" width="19" height="20" rx="9"/>
+      <ellipse class="d-body" cx="76" cy="82" rx="38" ry="28"/>
+      <ellipse class="d-belly" cx="76" cy="90" rx="24" ry="17"/>
+      <path class="d-plate d-plate--stego" d="M40 62l11-20 11 20z"/>
+      <path class="d-plate d-plate--stego" d="M60 54l12-23 12 23z"/>
+      <path class="d-plate d-plate--stego" d="M84 54l12-23 12 23z"/>
+      <path class="d-plate d-plate--stego" d="M106 60l10-19 10 19z"/>
+      <circle class="d-head" cx="126" cy="74" r="24"/>
+      <ellipse class="d-blush" cx="118" cy="84" rx="6" ry="3.5"/>
+      <g class="d-eye">
+        <circle cx="124" cy="68" r="8.6" fill="#fff"/>
+        <circle cx="126" cy="69" r="4.8" class="d-pupil"/>
+        <circle cx="128" cy="66.4" r="1.7" fill="#fff"/>
+      </g>
+      <path class="d-mouth" d="M136 88q5 5 11 1" fill="none" stroke-width="2.4" stroke-linecap="round"/>
+    </symbol>
+
+    <symbol id="dino-bronto" viewBox="0 0 150 130">
+      <path class="d-tail" d="M46 100C24 104 8 90 12 72c3-14 16-20 26-14 6 3 8 9 6 14-4-6-13-7-17-1-5 7 1 16 12 16 6 0 11-2 15-4z"/>
+      <rect class="d-leg" x="54" y="102" width="19" height="20" rx="9"/>
+      <rect class="d-leg" x="82" y="102" width="19" height="20" rx="9"/>
+      <ellipse class="d-body" cx="76" cy="86" rx="36" ry="26"/>
+      <ellipse class="d-belly" cx="76" cy="93" rx="22" ry="16"/>
+      <path class="d-neck" d="M96 74c6-20 14-34 24-40 8-5 18 0 18 9 0 6-4 10-10 11-6 1-10 7-12 16-2 9-4 15-8 19z"/>
+      <circle class="d-head" cx="126" cy="36" r="20"/>
+      <ellipse class="d-blush" cx="134" cy="44" rx="6" ry="3.5"/>
+      <g class="d-eye">
+        <circle cx="126" cy="32" r="7.6" fill="#fff"/>
+        <circle cx="128" cy="33" r="4.3" class="d-pupil"/>
+        <circle cx="129.8" cy="30.8" r="1.6" fill="#fff"/>
+      </g>
+      <path class="d-mouth" d="M134 46q4 4 9 0" fill="none" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<script type="module" src="/js/main.js"></script>
+</body>
+</html>
